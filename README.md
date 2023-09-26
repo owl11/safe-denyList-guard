@@ -4,7 +4,8 @@
 
 Components:
 
-- **BadERC20**: Built as a custome ERC20, with no name, and 0 decimals(optimize gas usage), it can only minted and burned by the owner, additionally, the owner can provide a reason as to why a user it blacklisted by adding a tx hash as proof to the malicous transaction commited by the blacklisted actors.
+- **BadERC20**: Built as a custome ERC20(but barely following the EIP20 spec), with no name, and 0 decimals(optimize gas usage), it can only minted and burned by the owner, additionally, an optional paramater, the owner can provide a reason as to why a user is blacklisted by adding a tx hash as proof to the malicous transaction commited by the blacklisted actors.
+
 - **Guard**: Inheriting from the most recent safe-contracts, we built out a cutome guard that denies any transaction that is going to 'blacklisted' address, through a basic ERC20 Methods' or ERC721's Methods' or a direct transfer (WIP).
 
 ## Usage
