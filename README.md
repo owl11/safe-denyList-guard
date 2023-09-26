@@ -1,66 +1,26 @@
-## Foundry
+## Safe-DenyList-Guard
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+**This is a custome guard built for the current safe-contracts architecture**
 
-Foundry consists of:
+Components:
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
-
-## Documentation
-
-https://book.getfoundry.sh/
+- **BadERC20**: Built as a custome ERC20, with no name, and 0 decimals(optimize gas usage), it can only minted and burned by the owner, additionally, the owner can provide a reason as to why a user it blacklisted by adding a tx hash as proof to the malicous transaction commited by the blacklisted actors.
+- **Guard**: Inheriting from the most recent safe-contracts, we built out a cutome guard that denies any transaction that is going to 'blacklisted' address, through a basic ERC20 Methods' or ERC721's Methods' or a direct transfer (WIP).
 
 ## Usage
 
 ### Build
 
 ```shell
-$ forge build
+$ forge script script/script.s.sol --private-key $DEPLOYER_PRIVATE_KEY --rpc-url $GOERLI_RPC --broadcast
 ```
 
-### Test
+## Notes
 
-```shell
-$ forge test
-```
+**Disclaimer:** These contracts are experimental and are not guaranteed or audited. They are a work in progress, and their functionality may change in future updates.
 
-### Format
+While we have designed these contracts to be simple and efficient, we cannot provide any guarantees regarding their security or functionality. Please exercise caution and use them at your own risk.
 
-```shell
-$ forge fmt
-```
+**Future Updates:** We are actively working on potential upgrades and updates to improve these contracts. Keep an eye out for announcements regarding new versions and changes.
 
-### Gas Snapshots
-
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+Your feedback and contributions are welcome as we continue to enhance and refine these contracts.

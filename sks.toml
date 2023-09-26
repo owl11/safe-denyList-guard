@@ -1,0 +1,4 @@
+name = "EpicTest"
+
+[deps]
+safe-core-protocol = "https://github.com/5afe/safe-core-protocol.git"
