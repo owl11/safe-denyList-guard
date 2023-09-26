@@ -1,6 +1,6 @@
 ## Safe-DenyList-Guard
 
-**This is a custome guard built for the current safe-contracts architecture**
+**This is a custom guard built for the current safe-contracts architecture**
 
 Components:
 
